@@ -1,0 +1,283 @@
+[19:09:28] [INFO] 🔧 Running dataset ingestion → embedding → Qdrant upload...
+[19:09:28] [ERROR] ❌ Failed in chunking runnable
+Traceback (most recent call last):
+  File "/Users/ssris/Desktop/RIMSAB/Agribot/utils/chunking.py", line 192, in _chunking_runnable_impl
+    raise ValueError(f"[chunking.py] ❌ Missing 'raw_json_path' or 'index_json_path' in inputs: {list(inputs.keys())}")
+ValueError: [chunking.py] ❌ Missing 'raw_json_path' or 'index_json_path' in inputs: ['raw_json_path', 'embed_json_path', 'source_name', 'doc_date', 'title', 'chunk_size', 'chunk_overlap', 'collection_name']
+[19:09:34] [ERROR] ❌ Fatal pipeline error.
+Traceback (most recent call last):
+  File "/Users/ssris/Desktop/RIMSAB/Agribot/MASTER.py", line 103, in <module>
+    ingest_result = run_rag_pipeline(dataset_path, collection_name="json_dataset_chunks")
+  File "/Users/ssris/Desktop/RIMSAB/Agribot/MASTER.py", line 57, in run_rag_pipeline
+    result = rag_pipeline.invoke(input_dict)
+  File "/Users/ssris/Desktop/RIMSAB/Agribot/agri/lib/python3.13/site-packages/langchain_core/runnables/base.py", line 3245, in invoke
+    input_ = context.run(step.invoke, input_, config)
+  File "/Users/ssris/Desktop/RIMSAB/Agribot/agri/lib/python3.13/site-packages/langchain_core/runnables/base.py", line 5024, in invoke
+    return self._call_with_config(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        self._invoke,
+        ^^^^^^^^^^^^^
+    ...<2 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/Users/ssris/Desktop/RIMSAB/Agribot/agri/lib/python3.13/site-packages/langchain_core/runnables/base.py", line 2089, in _call_with_config
+    context.run(
+    ~~~~~~~~~~~^
+        call_func_with_variable_args,  # type: ignore[arg-type]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ),
+    ^
+  File "/Users/ssris/Desktop/RIMSAB/Agribot/agri/lib/python3.13/site-packages/langchain_core/runnables/config.py", line 430, in call_func_with_variable_args
+    return func(input, **kwargs)  # type: ignore[call-arg]
+  File "/Users/ssris/Desktop/RIMSAB/Agribot/agri/lib/python3.13/site-packages/langchain_core/runnables/base.py", line 4881, in _invoke
+    output = call_func_with_variable_args(
+        self.func, input_, config, run_manager, **kwargs
+    )
+  File "/Users/ssris/Desktop/RIMSAB/Agribot/agri/lib/python3.13/site-packages/langchain_core/runnables/config.py", line 430, in call_func_with_variable_args
+    return func(input, **kwargs)  # type: ignore[call-arg]
+  File "/Users/ssris/Desktop/RIMSAB/Agribot/utils/create_embeding.py", line 24, in embed_text_chain_fn
+    raise ValueError("[embed_text_chain_fn] ❌ No 'chunks' found in inputs")
+ValueError: [embed_text_chain_fn] ❌ No 'chunks' found in inputs
+[19:13:11] [INFO] 🔧 Running dataset ingestion → embedding → Qdrant upload...
+[19:13:16] [ERROR] ❌ Fatal pipeline error.
+Traceback (most recent call last):
+  File "/Users/ssris/Desktop/RIMSAB/Agribot/MASTER.py", line 94, in <module>
+    ingest_result = run_rag_pipeline(dataset_path, collection_name="json_dataset")
+  File "/Users/ssris/Desktop/RIMSAB/Agribot/MASTER.py", line 48, in run_rag_pipeline
+    result = rag_pipeline.invoke(input_dict)
+  File "/Users/ssris/Desktop/RIMSAB/Agribot/agri/lib/python3.13/site-packages/langchain_core/runnables/base.py", line 3243, in invoke
+    input_ = context.run(step.invoke, input_, config, **kwargs)
+  File "/Users/ssris/Desktop/RIMSAB/Agribot/agri/lib/python3.13/site-packages/langchain_core/runnables/base.py", line 5024, in invoke
+    return self._call_with_config(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        self._invoke,
+        ^^^^^^^^^^^^^
+    ...<2 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/Users/ssris/Desktop/RIMSAB/Agribot/agri/lib/python3.13/site-packages/langchain_core/runnables/base.py", line 2089, in _call_with_config
+    context.run(
+    ~~~~~~~~~~~^
+        call_func_with_variable_args,  # type: ignore[arg-type]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ),
+    ^
+  File "/Users/ssris/Desktop/RIMSAB/Agribot/agri/lib/python3.13/site-packages/langchain_core/runnables/config.py", line 430, in call_func_with_variable_args
+    return func(input, **kwargs)  # type: ignore[call-arg]
+  File "/Users/ssris/Desktop/RIMSAB/Agribot/agri/lib/python3.13/site-packages/langchain_core/runnables/base.py", line 4881, in _invoke
+    output = call_func_with_variable_args(
+        self.func, input_, config, run_manager, **kwargs
+    )
+  File "/Users/ssris/Desktop/RIMSAB/Agribot/agri/lib/python3.13/site-packages/langchain_core/runnables/config.py", line 430, in call_func_with_variable_args
+    return func(input, **kwargs)  # type: ignore[call-arg]
+  File "/Users/ssris/Desktop/RIMSAB/Agribot/utils/create_embeding.py", line 24, in embed_text_chain_fn
+    raise ValueError("[embed_text_chain_fn] ❌ No 'chunks' found in inputs")
+ValueError: [embed_text_chain_fn] ❌ No 'chunks' found in inputs
+[19:22:45] [INFO] 🔧 Running dataset ingestion → embedding → Qdrant upload...
+[19:22:46] [INFO] 📄 Loaded 20 chunks from ./temp_uploads/crop_dataset_embeddings.json
+[19:22:46] [INFO] 🔍 Auto-detected vector size: 384
+[19:22:46] [INFO] 🆕 Created collection 'json_dataset' with vector size 384
+[19:22:46] [ERROR] ❌ Error uploading batch 1: Unexpected Response: 400 (Bad Request)
+Raw response content:
+b'{"status":{"error":"Format error in JSON body: value wheat_climate is not a valid point ID, valid values are either an unsigned integer or a UUID"},"time":0.0}'
+[19:22:46] [INFO] ✅ Uploaded 1 batches to 'json_dataset'
+[19:23:05] [INFO] Running RAG query for: what is about rice diseases
+[19:23:06] [INFO] 🔎 Retrieved 0 results for query: 'what is about rice diseases'
+[19:26:54] [INFO] 🔧 Running dataset ingestion → embedding → Qdrant upload...
+[19:26:55] [INFO] 📄 Loaded 20 chunks from ./temp_uploads/crop_dataset_embeddings.json
+[19:26:55] [INFO] 🔍 Auto-detected vector size: 384
+[19:26:55] [INFO] 🆕 Created collection 'crop_dataset' with vector size 384
+[19:26:55] [INFO] ✅ Uploaded 1 batches to 'crop_dataset'
+[19:27:29] [INFO] Running RAG query for: tell me about the Wheat in which temprature
+[19:27:30] [INFO] 🔎 Retrieved 5 results for query: 'tell me about the Wheat in which temprature'
+[19:27:30] [INFO] Match 1: ID=0, Score=0.7259, Meta={'crop': 'Wheat', 'domain': 'climate'}
+[19:27:30] [INFO] Match 2: ID=10, Score=0.5424, Meta={'crop': 'Maize', 'domain': 'climate'}
+[19:27:30] [INFO] Match 3: ID=4, Score=0.5137, Meta={'crop': 'Wheat', 'domain': 'market_use'}
+[19:27:30] [INFO] Match 4: ID=1, Score=0.4393, Meta={'crop': 'Wheat', 'domain': 'soil'}
+[19:27:30] [INFO] Match 5: ID=15, Score=0.4285, Meta={'crop': 'Tomato', 'domain': 'climate'}
+[19:27:31] [ERROR] ❌ Error in RAG query: [❌] Error getting LLM response: Error code: 400 - {'error': {'message': "'messages.1' : for 'role:user' the following must be satisfied[('messages.1.content' : one of the following must be satisfied[('messages.1.content' : value must be a string) OR ('messages.1.content' : value must be an array)])]", 'type': 'invalid_request_error'}}
+Traceback (most recent call last):
+  File "/Users/ssris/Desktop/RIMSAB/Agribot/utils/llm.py", line 142, in get_groq_response
+    response = client.chat.completions.create(
+        messages=[
+    ...<4 lines>...
+        temperature=temperature
+    )
+  File "/Users/ssris/Desktop/RIMSAB/Agribot/agri/lib/python3.13/site-packages/groq/resources/chat/completions.py", line 448, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/openai/v1/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<43 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ssris/Desktop/RIMSAB/Agribot/agri/lib/python3.13/site-packages/groq/_base_client.py", line 1242, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ssris/Desktop/RIMSAB/Agribot/agri/lib/python3.13/site-packages/groq/_base_client.py", line 1044, in request
+    raise self._make_status_error_from_response(err.response) from None
+groq.BadRequestError: Error code: 400 - {'error': {'message': "'messages.1' : for 'role:user' the following must be satisfied[('messages.1.content' : one of the following must be satisfied[('messages.1.content' : value must be a string) OR ('messages.1.content' : value must be an array)])]", 'type': 'invalid_request_error'}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ssris/Desktop/RIMSAB/Agribot/utils/qdrant.py", line 136, in rag_query
+    response = get_groq_response(prompt)
+  File "/Users/ssris/Desktop/RIMSAB/Agribot/utils/llm.py", line 160, in get_groq_response
+    raise RuntimeError(f"[❌] Error getting LLM response: {e}")
+RuntimeError: [❌] Error getting LLM response: Error code: 400 - {'error': {'message': "'messages.1' : for 'role:user' the following must be satisfied[('messages.1.content' : one of the following must be satisfied[('messages.1.content' : value must be a string) OR ('messages.1.content' : value must be an array)])]", 'type': 'invalid_request_error'}}
+[19:45:29] [INFO] 🔧 Running dataset ingestion → embedding → Qdrant upload...
+[19:45:29] [INFO] 📄 Loaded 20 chunks from ./temp_uploads/crop_dataset_embeddings.json
+[19:45:29] [INFO] 🔍 Auto-detected vector size: 384
+[19:45:29] [INFO] ✅ Collection 'crop_dataset' already exists with 20 points. Skipping upload.
+[19:46:03] [INFO] Running RAG query for: tell me about that Wheat grows best in wheather?
+[19:46:03] [INFO] 🔎 Retrieved 5 results for query: 'tell me about that Wheat grows best in wheather?'
+[19:46:03] [INFO] Match 1: ID=0, Score=0.6726, Meta={'crop': 'Wheat', 'domain': 'climate'}
+[19:46:03] [INFO] Match 2: ID=4, Score=0.6406, Meta={'crop': 'Wheat', 'domain': 'market_use'}
+[19:46:03] [INFO] Match 3: ID=1, Score=0.5365, Meta={'crop': 'Wheat', 'domain': 'soil'}
+[19:46:03] [INFO] Match 4: ID=6, Score=0.4980, Meta={'crop': 'Rice', 'domain': 'soil'}
+[19:46:03] [INFO] Match 5: ID=2, Score=0.4580, Meta={'crop': 'Wheat', 'domain': 'fertilizer'}
+[19:55:09] [INFO] 🔧 Running dataset ingestion → embedding → Qdrant upload...
+[19:55:10] [INFO] 📄 Loaded 20 chunks from ./temp_uploads/crop_dataset_embeddings.json
+[19:55:10] [INFO] 🔍 Auto-detected vector size: 384
+[19:55:10] [INFO] ✅ Collection 'crop_dataset' already exists with 20 points. Skipping upload.
+[19:55:38] [INFO] Running RAG query for: wheat is in which state
+[19:55:39] [INFO] 🔎 Retrieved 5 results for query: 'wheat is in which state'
+[19:55:39] [INFO] Match 1: ID=4, Score=0.5670, Meta={'crop': 'Wheat', 'domain': 'market_use'}
+[19:55:39] [INFO] Match 2: ID=0, Score=0.5477, Meta={'crop': 'Wheat', 'domain': 'climate'}
+[19:55:39] [INFO] Match 3: ID=1, Score=0.4689, Meta={'crop': 'Wheat', 'domain': 'soil'}
+[19:55:39] [INFO] Match 4: ID=19, Score=0.3821, Meta={'crop': 'Tomato', 'domain': 'market_use'}
+[19:55:39] [INFO] Match 5: ID=2, Score=0.3603, Meta={'crop': 'Wheat', 'domain': 'fertilizer'}
+[19:56:50] [INFO] Running RAG query for: what is the wheat market
+[19:56:51] [INFO] 🔎 Retrieved 5 results for query: 'what is the wheat market'
+[19:56:51] [INFO] Match 1: ID=4, Score=0.5667, Meta={'crop': 'Wheat', 'domain': 'market_use'}
+[19:56:51] [INFO] Match 2: ID=0, Score=0.4399, Meta={'crop': 'Wheat', 'domain': 'climate'}
+[19:56:51] [INFO] Match 3: ID=1, Score=0.3386, Meta={'crop': 'Wheat', 'domain': 'soil'}
+[19:56:51] [INFO] Match 4: ID=2, Score=0.3382, Meta={'crop': 'Wheat', 'domain': 'fertilizer'}
+[19:56:51] [INFO] Match 5: ID=14, Score=0.3309, Meta={'crop': 'Maize', 'domain': 'market_use'}
+[19:59:35] [INFO] 🔧 Running dataset ingestion → embedding → Qdrant upload...
+[19:59:36] [INFO] 📄 Loaded 20 chunks from ./temp_uploads/crop_dataset_embeddings.json
+[19:59:36] [INFO] 🔍 Auto-detected vector size: 384
+[19:59:36] [INFO] 🆕 Created collection 'crop_dataset' with vector size 384
+[19:59:36] [INFO] ✅ Uploaded 1 batches to 'crop_dataset'
+[19:59:45] [INFO] Running RAG query for: what is this dataset about
+[19:59:46] [INFO] 🔎 Retrieved 5 results for query: 'what is this dataset about'
+[19:59:46] [INFO] Match 1: ID=8, Score=0.1443, Meta={'crop': 'Rice', 'domain': 'disease', 'tag': 'rice_disease'}
+[19:59:46] [INFO] Match 2: ID=19, Score=0.1295, Meta={'crop': 'Tomato', 'domain': 'market_use', 'tag': 'tomato_market'}
+[19:59:46] [INFO] Match 3: ID=9, Score=0.1240, Meta={'crop': 'Rice', 'domain': 'market_use', 'tag': 'rice_market'}
+[19:59:46] [INFO] Match 4: ID=3, Score=0.1145, Meta={'crop': 'Wheat', 'domain': 'disease', 'tag': 'wheat_disease'}
+[19:59:46] [INFO] Match 5: ID=4, Score=0.1050, Meta={'crop': 'Wheat', 'domain': 'market_use', 'tag': 'wheat_market'}
+[20:00:51] [INFO] Running RAG query for: tell me in detail about that
+[20:00:51] [INFO] 🔎 Retrieved 5 results for query: 'tell me in detail about that'
+[20:00:51] [INFO] Match 1: ID=6, Score=0.0397, Meta={'crop': 'Rice', 'domain': 'soil', 'tag': 'rice_soil'}
+[20:00:51] [INFO] Match 2: ID=11, Score=0.0390, Meta={'crop': 'Maize', 'domain': 'soil', 'tag': 'maize_soil'}
+[20:00:51] [INFO] Match 3: ID=13, Score=0.0384, Meta={'crop': 'Maize', 'domain': 'disease', 'tag': 'maize_disease'}
+[20:00:51] [INFO] Match 4: ID=8, Score=0.0346, Meta={'crop': 'Rice', 'domain': 'disease', 'tag': 'rice_disease'}
+[20:00:51] [INFO] Match 5: ID=4, Score=0.0324, Meta={'crop': 'Wheat', 'domain': 'market_use', 'tag': 'wheat_market'}
+[20:01:27] [INFO] Running RAG query for: tell me about wheat is grown best in which condition specificly in case of temprature
+[20:01:28] [INFO] 🔎 Retrieved 5 results for query: 'tell me about wheat is grown best in which condition specificly in case of temprature'
+[20:01:28] [INFO] Match 1: ID=0, Score=0.7668, Meta={'crop': 'Wheat', 'domain': 'climate', 'tag': 'wheat_climate'}
+[20:01:28] [INFO] Match 2: ID=4, Score=0.5329, Meta={'crop': 'Wheat', 'domain': 'market_use', 'tag': 'wheat_market'}
+[20:01:28] [INFO] Match 3: ID=15, Score=0.5164, Meta={'crop': 'Tomato', 'domain': 'climate', 'tag': 'tomato_climate'}
+[20:01:28] [INFO] Match 4: ID=10, Score=0.5154, Meta={'crop': 'Maize', 'domain': 'climate', 'tag': 'maize_climate'}
+[20:01:28] [INFO] Match 5: ID=2, Score=0.5029, Meta={'crop': 'Wheat', 'domain': 'fertilizer', 'tag': 'wheat_fertilizer'}
+[20:07:55] [INFO] Running RAG query for: what is the ph required
+[20:07:56] [INFO] 🔎 Retrieved 5 results for query: 'what is the ph required'
+[20:07:56] [INFO] Match 1: ID=1, Score=0.3954, Meta={'crop': 'Wheat', 'domain': 'soil', 'tag': 'wheat_soil'}
+[20:07:56] [INFO] Match 2: ID=17, Score=0.3463, Meta={'crop': 'Tomato', 'domain': 'fertilizer', 'tag': 'tomato_fertilizer'}
+[20:07:56] [INFO] Match 3: ID=16, Score=0.3300, Meta={'crop': 'Tomato', 'domain': 'soil', 'tag': 'tomato_soil'}
+[20:07:56] [INFO] Match 4: ID=7, Score=0.3059, Meta={'crop': 'Rice', 'domain': 'fertilizer', 'tag': 'rice_fertilizer'}
+[20:07:56] [INFO] Match 5: ID=12, Score=0.2823, Meta={'crop': 'Maize', 'domain': 'fertilizer', 'tag': 'maize_fertilizer'}
+[20:23:03] [INFO] 🔧 Running dataset ingestion → embedding → Qdrant upload...
+[20:23:04] [INFO] 📄 Loaded 91 chunks from ./temp_uploads/crop_dataset_embeddings.json
+[20:23:04] [INFO] 🔍 Auto-detected vector size: 384
+[20:23:04] [INFO] ⚡ Collection 'crop_dataset' exists with 20 points. Appending new points.
+[20:23:04] [INFO] ✅ Uploaded batch 1/2 (50 points)
+[20:23:05] [INFO] ✅ Uploaded batch 2/2 (41 points)
+[20:23:05] [INFO] 📊 Finished uploading 91 points to 'crop_dataset' in 2 batches.
+[20:23:15] [INFO] Running RAG query for: tell me about wheat
+[20:23:16] [INFO] 🔎 Retrieved 5 results for query: 'tell me about wheat'
+[20:23:16] [INFO] Match 1: ID=37, Score=0.6995, Meta={'crop': 'Wheat', 'domain': 'disease', 'tag': 'wheat_disease_part1'}
+[20:23:16] [INFO] Match 2: ID=4, Score=0.6835, Meta={'crop': 'Wheat', 'domain': 'market_use', 'tag': 'wheat_market'}
+[20:23:16] [INFO] Match 3: ID=42, Score=0.6812, Meta={'crop': 'Wheat', 'domain': 'market_use', 'tag': 'wheat_market_part1'}
+[20:23:16] [INFO] Match 4: ID=24, Score=0.6578, Meta={'crop': 'Wheat', 'domain': 'climate', 'tag': 'wheat_climate_part5'}
+[20:23:16] [INFO] Match 5: ID=45, Score=0.6079, Meta={'crop': 'Wheat', 'domain': 'market_use', 'tag': 'wheat_market_part4'}
+[20:26:12] [INFO] 🔧 Running dataset ingestion → embedding → Qdrant upload...
+[20:26:12] [INFO] 📄 Loaded 91 chunks from ./temp_uploads/crop_dataset_embeddings.json
+[20:26:12] [INFO] 🔍 Auto-detected vector size: 384
+[20:26:13] [INFO] ⚡ Collection 'crop_dataset' exists with 111 points. Appending new points.
+[20:26:13] [INFO] ✅ Uploaded batch 1/2 (50 points)
+[20:26:13] [INFO] ✅ Uploaded batch 2/2 (41 points)
+[20:26:13] [INFO] 📊 Finished uploading 91 points to 'crop_dataset' in 2 batches.
+[20:28:01] [INFO] 🔧 Running dataset ingestion → embedding → Qdrant upload...
+[20:28:01] [INFO] 📄 Loaded 91 chunks from ./temp_uploads/crop_dataset_embeddings.json
+[20:28:01] [INFO] 🔍 Auto-detected vector size: 384
+[20:28:01] [INFO] ⚡ Collection 'crop_dataset' exists with 202 points. Appending new points.
+[20:28:01] [INFO] ✅ Uploaded batch 1/2 (50 points)
+[20:28:01] [INFO] ✅ Uploaded batch 2/2 (41 points)
+[20:28:01] [INFO] 📊 Finished uploading 91 points to 'crop_dataset' in 2 batches.
+[20:29:12] [INFO] 🔧 Running dataset ingestion → embedding → Qdrant upload...
+[20:29:13] [INFO] 📄 Loaded 38 chunks from ./temp_uploads/crop_dataset_embeddings.json
+[20:29:13] [INFO] 🔍 Auto-detected vector size: 384
+[20:29:13] [INFO] ⚡ Collection 'crop_dataset' exists with 293 points. Appending new points.
+[20:29:13] [INFO] ✅ Uploaded batch 1/1 (38 points)
+[20:29:13] [INFO] 📊 Finished uploading 38 points to 'crop_dataset' in 1 batches.
+[20:30:01] [INFO] Running RAG query for: tell me in detail about the wheat temprature and climate requirements
+[20:30:01] [INFO] 🔎 Retrieved 5 results for query: 'tell me in detail about the wheat temprature and climate requirements'
+[20:30:01] [INFO] Match 1: ID=0, Score=0.7293, Meta={'crop': 'Wheat', 'domain': 'climate', 'tag': 'wheat_climate'}
+[20:30:01] [INFO] Match 2: ID=293, Score=0.6851, Meta={'crop': 'Wheat', 'domain': 'climate', 'tag': 'wheat_climate_part1'}
+[20:30:01] [INFO] Match 3: ID=20, Score=0.6625, Meta={'crop': 'Wheat', 'domain': 'climate', 'tag': 'wheat_climate_part1'}
+[20:30:01] [INFO] Match 4: ID=202, Score=0.6625, Meta={'crop': 'Wheat', 'domain': 'climate', 'tag': 'wheat_climate_part1'}
+[20:30:01] [INFO] Match 5: ID=111, Score=0.6625, Meta={'crop': 'Wheat', 'domain': 'climate', 'tag': 'wheat_climate_part1'}
+[20:33:57] [INFO] 🔧 Running dataset ingestion → embedding → Qdrant upload...
+[20:33:58] [INFO] 📄 Loaded 38 chunks from ./temp_uploads/crop_dataset_embeddings.json
+[20:33:58] [INFO] 🔍 Auto-detected vector size: 384
+[20:33:58] [INFO] ⚡ Collection 'crop_dataset' exists with 331 points. Appending new points.
+[20:33:58] [INFO] ✅ Uploaded batch 1/1 (38 points)
+[20:33:58] [INFO] 📊 Finished uploading 38 points to 'crop_dataset' in 1 batches.
+[20:34:32] [INFO] Running RAG query for: Recommended fertilizers for wheat
+[20:34:33] [INFO] 🔎 Retrieved 5 results for query: 'Recommended fertilizers for wheat'
+[20:34:33] [INFO] Match 1: ID=2, Score=0.8704, Meta={'crop': 'Wheat', 'domain': 'fertilizer', 'tag': 'wheat_fertilizer'}
+[20:34:33] [INFO] Match 2: ID=297, Score=0.7855, Meta={'crop': 'Wheat', 'domain': 'fertilizer', 'tag': 'wheat_fertilizer_part1'}
+[20:34:33] [INFO] Match 3: ID=335, Score=0.7855, Meta={'crop': 'Wheat', 'domain': 'fertilizer', 'tag': 'wheat_fertilizer_part1'}
+[20:34:33] [INFO] Match 4: ID=32, Score=0.7521, Meta={'crop': 'Wheat', 'domain': 'fertilizer', 'tag': 'wheat_fertilizer_part1'}
+[20:34:33] [INFO] Match 5: ID=214, Score=0.7521, Meta={'crop': 'Wheat', 'domain': 'fertilizer', 'tag': 'wheat_fertilizer_part1'}
+[20:35:52] [INFO] Running RAG query for: what is the fertility require for the wheat in the soil tell more
+[20:35:53] [INFO] 🔎 Retrieved 5 results for query: 'what is the fertility require for the wheat in the soil tell more'
+[20:35:53] [INFO] Match 1: ID=32, Score=0.7387, Meta={'crop': 'Wheat', 'domain': 'fertilizer', 'tag': 'wheat_fertilizer_part1'}
+[20:35:53] [INFO] Match 2: ID=123, Score=0.7387, Meta={'crop': 'Wheat', 'domain': 'fertilizer', 'tag': 'wheat_fertilizer_part1'}
+[20:35:53] [INFO] Match 3: ID=214, Score=0.7387, Meta={'crop': 'Wheat', 'domain': 'fertilizer', 'tag': 'wheat_fertilizer_part1'}
+[20:35:53] [INFO] Match 4: ID=335, Score=0.6507, Meta={'crop': 'Wheat', 'domain': 'fertilizer', 'tag': 'wheat_fertilizer_part1'}
+[20:35:53] [INFO] Match 5: ID=297, Score=0.6507, Meta={'crop': 'Wheat', 'domain': 'fertilizer', 'tag': 'wheat_fertilizer_part1'}
+[20:37:12] [INFO] 🔧 Running dataset ingestion → embedding → Qdrant upload...
+[20:37:13] [INFO] 📄 Loaded 38 chunks from ./temp_uploads/crop_dataset_embeddings.json
+[20:37:13] [INFO] 🔍 Auto-detected vector size: 384
+[20:37:13] [INFO] 🆕 Created collection 'crop_dataset' with vector size 384
+[20:37:13] [INFO] ✅ Uploaded batch 1/1 (38 points)
+[20:37:13] [INFO] 📊 Finished uploading 38 points to 'crop_dataset' in 1 batches.
+[20:37:40] [INFO] Running RAG query for: tell me about weather conditions for wheat
+[20:37:41] [INFO] 🔎 Retrieved 5 results for query: 'tell me about weather conditions for wheat'
+[20:37:41] [INFO] Match 1: ID=1, Score=0.6547, Meta={'crop': 'Wheat', 'domain': 'climate', 'tag': 'wheat_climate_part2'}
+[20:37:41] [INFO] Match 2: ID=0, Score=0.6412, Meta={'crop': 'Wheat', 'domain': 'climate', 'tag': 'wheat_climate_part1'}
+[20:37:41] [INFO] Match 3: ID=20, Score=0.5799, Meta={'crop': 'Maize', 'domain': 'climate', 'tag': 'maize_climate_part1'}
+[20:37:41] [INFO] Match 4: ID=6, Score=0.4997, Meta={'crop': 'Wheat', 'domain': 'disease', 'tag': 'wheat_disease_part1'}
+[20:37:41] [INFO] Match 5: ID=11, Score=0.4984, Meta={'crop': 'Rice', 'domain': 'climate', 'tag': 'rice_climate_part2'}
+[20:38:15] [INFO] Running RAG query for: tell me about the soil for the same
+[20:38:16] [INFO] 🔎 Retrieved 5 results for query: 'tell me about the soil for the same'
+[20:38:16] [INFO] Match 1: ID=2, Score=0.5562, Meta={'crop': 'Wheat', 'domain': 'soil', 'tag': 'wheat_soil_part1'}
+[20:38:16] [INFO] Match 2: ID=22, Score=0.5475, Meta={'crop': 'Maize', 'domain': 'soil', 'tag': 'maize_soil'}
+[20:38:16] [INFO] Match 3: ID=3, Score=0.5230, Meta={'crop': 'Wheat', 'domain': 'soil', 'tag': 'wheat_soil_part2'}
+[20:38:16] [INFO] Match 4: ID=12, Score=0.4966, Meta={'crop': 'Rice', 'domain': 'soil', 'tag': 'rice_soil_part1'}
+[20:38:16] [INFO] Match 5: ID=5, Score=0.4693, Meta={'crop': 'Wheat', 'domain': 'fertilizer', 'tag': 'wheat_fertilizer_part2'}
