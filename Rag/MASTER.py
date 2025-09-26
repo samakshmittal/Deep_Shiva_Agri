@@ -66,37 +66,6 @@ def add_assistant_message(message_list, text):
     }
     message_list.append(asst_message)
 
-
-# # ------------------------------
-# # 💬 Chat Loop
-# # ------------------------------
-# def chat_loop(qdrant_client, collection_name):
-#     print("\n💬 You can now ask questions! Type 'exit' to quit.\n")
-#     while True:
-#         query = input("🧠 Ask your query: ").strip()
-#         if query.lower() in {"exit", "quit"}:
-#             print("👋 Goodbye!")
-#             break
-
-#         try:
-#             query_inputs = {
-#                 "qdrant_client": qdrant_client,
-#                 "collection_name": collection_name,
-#                 "query": query,
-#                 "history": list(chat_history)
-#             }
-#             response = query_pipe.invoke(query_inputs)
-#             answer = response["response"]
-#             contexts = response["contexts"]
-
-#             print("🤖", answer, "\n", contexts)
-#             chat_history.append([query, answer, contexts])
-
-#         except Exception as e:
-#             logger.exception("❌ Query failed.")
-#             print(f"❌ Error: {str(e)}\n")
-
-
 # ------------------------------
 # 💬 Chat Loop
 # ------------------------------
