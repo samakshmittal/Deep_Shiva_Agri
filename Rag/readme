@@ -1,6 +1,0 @@
-#create a venv
-#load all the requerments 
-#setup .env file with api for llm or setup coai llm path to infer 
-#it corently uses the llama via groq api its free to infer you can also do by setting up api of the same GROQ in the .env
-#setup QDRANT_URL="http://localhost:{port}/" if locally hosted via docker and leave api 
-#if working with cloud acess use QDRANT_URL and QDRANT_API_KEY and setup in the .env
