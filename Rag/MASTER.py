@@ -12,6 +12,10 @@ from utils.qdrant import upload_qdrant_runnable, rag_query_runnable
 from utils.log import setup_logger
 from utils.llm import build_prompt, get_groq_response
 
+# For Neo4j
+from utils.neo4j_connector import get_crop_related_info
+
+
 
 # --------------------------------
 # ⚙️ Setup
@@ -94,9 +98,32 @@ def chat_loop(qdrant_client, collection_name):
             response = query_pipe.invoke(query_inputs)
             retrieved_chunks = response["contexts"]
 
+            # 🧩 Get Neo4j graph info based on crop name (can later use NLP)
+            possible_crop = None
+            for chunk in retrieved_chunks:
+                meta = chunk.get("metadata", {})
+                if "crop" in meta:
+                    possible_crop = meta["crop"]
+                    break
+            if not possible_crop:
+                possible_crop = "Wheat"  # fallback crop name
+
+            graph_context = get_crop_related_info(possible_crop)
+
+            # 🧠 Merge both Qdrant + Neo4j data
+            combined_context = "\n\n--- Semantic Context ---\n"
+            for chunk in retrieved_chunks:
+                combined_context += f"{chunk['text']}\n"
+            combined_context += f"\n--- Graph Context (Neo4j) for {possible_crop} ---\n{graph_context}"
+
+            # Use combined context for LLM
+            prompt_text = f"Answer the following question using the provided information:\n{combined_context}\n\nQuestion: {query}"
+            answer = get_groq_response(prompt_text)
+
+
             # 3️⃣ Build agriculture-specific prompt
-            prompt_template = build_prompt(query, retrieved_chunks)
-            prompt_text = prompt_template.format()  # convert PromptTemplate → string
+            # prompt_template = build_prompt(query, retrieved_chunks)
+            # prompt_text = prompt_template.format()  # convert PromptTemplate → string
 
             # 4️⃣ Get LLM response from Groq
             answer = get_groq_response(prompt_text)
